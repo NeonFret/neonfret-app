@@ -5,6 +5,7 @@
   --neon-green: #00ff6a;
   --font-primary: "TKT", sans-serif;
   --font-display: "Koulen", sans-serif;
+  --container-padding: 54px
 }
 
 * {
@@ -18,4 +19,8 @@ body {
   color: var(--text-white);
   font-family: var(--font-primary);
   min-height: 100vh;
+}
+
+.container {
+  padding: 0 var(--container-padding) 0 var(--container-padding);
 }
