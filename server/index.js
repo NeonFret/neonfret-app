@@ -61,7 +61,7 @@ const chords = [
     name: "Cmaj7",
     slug: "c-major7",
     type: "major7",
-    notes: ["C", "E", "G", "B"],
+    notes: ["C", "E"],
     fingers: ["X", 3, 2, 0, 0, 0],
     diagramURL: "http://localhost:5000/chords/c-major7/Cmaj7Fret.svg",
     irlURL: "http://localhost:5000/chords/c-major7/Cmaj7IRL.png",
