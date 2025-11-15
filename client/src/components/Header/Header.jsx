@@ -1,8 +1,19 @@
 import logoIcon from "../../assets/logo_icon.svg";
-
+import { useState } from "react";
 import "../Header/Header.css";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  const closeMenu = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setMenuOpen(false);
+      setClosing(false);
+    }, 300);
+  };
+
   return (
     <>
       <header className="header">
@@ -22,7 +33,32 @@ export default function Header() {
         </nav>
 
         <button className="sign-in">SIGN IN</button>
+
+        <div className="hamburger" onClick={() => setMenuOpen(true)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </header>
+      {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
+
+      {menuOpen && (
+        <div className={`mobile-menu ${closing ? "closing" : ""}`}>
+          <ul>
+            <li>HOME</li>
+            <li>CHORDS</li>
+            <li>SCALES</li>
+            <li>LICKS</li>
+            <li>PRACTICE</li>
+            <li className="mobile-sign-in">SIGN IN</li>
+          </ul>
+
+          <button className="close-menu" onClick={closeMenu}>
+            ✕
+          </button>
+        </div>
+      )}
+
       <div className="underline"></div>
     </>
   );
