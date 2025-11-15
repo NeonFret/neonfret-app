@@ -1,3 +1,13 @@
+import HomeHero from "../components/Home/HomeHero";
+import ReasonSection from "../components/Home/ReasonSection";
+import RecommendedPath from "../components/Home/RecommendedPath";
+
 export default function Home() {
-  return <h1>Home Page</h1>;
+  return (
+    <>
+      <HomeHero />
+      <ReasonSection />
+      <RecommendedPath />
+    </>
+  );
 }
