@@ -1,3 +1,9 @@
+import TopPart from "../components/ChordLibrary/TopPart"
+
 export default function Chords() {
-  return <h1>Chords Page</h1>;
+  return (
+    <section>
+      <TopPart />
+    </section>
+  );
 }

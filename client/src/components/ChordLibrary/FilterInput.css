@@ -1,0 +1,73 @@
+.filter-wrapper {
+  position: relative;
+  width: 280px;
+  height: 42px;
+  background: #111111;
+  border: 1px solid #3e3e3e;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.filter-display {
+  height: 48px;
+  padding: 10px 45px 0 18px;
+  display: flex;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  color: #3e3e3e; 
+}
+
+.filter-display.has-value {
+  color: #ffffff;
+}
+
+.filter-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.filter-wrapper.open .filter-arrow {
+  transform: translateY(-50%) rotate(0deg); 
+}
+
+.filter-options {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 100%;
+  margin-top: 4px;
+  list-style: none;
+  padding: 4px 0;
+  background: #111111;
+  border: 1px solid #3e3e3e;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.filter-option {
+  padding: 8px 18px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  color: #d6d6d6;
+  transition: 0.2s ease;
+}
+
+.filter-option:hover {
+  background: #181818;
+  color: var(--neon-green);
+}
+
+.filter-option:first-child {
+  color: #3e3e3e; 
+}
+
+.filter-option:first-child:hover {
+  background: #111111;
+  color: #3e3e3e;
+}
