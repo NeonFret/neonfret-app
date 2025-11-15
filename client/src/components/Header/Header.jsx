@@ -1,5 +1,5 @@
 import logoIcon from "../../assets/logo_icon.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../Header/Header.css";
 
 export default function Header() {
@@ -13,6 +13,18 @@ export default function Header() {
       setClosing(false);
     }, 300);
   };
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
 
   return (
     <>

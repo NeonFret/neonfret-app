@@ -1,0 +1,30 @@
+.recommended-layout {
+  padding: 0px 0;
+  text-align: center;
+}
+
+.recommended-layout h1 {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.recommended-layout h1 span {
+  color: var(--neon-green);
+}
+
+.path-row {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+}
+
+@media (max-width: 800px) {
+    .path-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
