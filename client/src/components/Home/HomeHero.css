@@ -1,5 +1,7 @@
 .home-hero {
   padding: 73px var(--inner-padding) 0 var(--inner-padding);
+  display: flex;
+  justify-content: space-around;
 }
 
 .hero-left {

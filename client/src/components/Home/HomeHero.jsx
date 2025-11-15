@@ -1,4 +1,5 @@
 import FeatureCard from "./FeatureCard";
+import ChordPreview from "./ChordPreview";
 import "./HomeHero.css";
 
 export default function HomeHero() {
@@ -27,6 +28,8 @@ export default function HomeHero() {
           <FeatureCard icon="PracticeMode" title="Practice Mode" />
         </div>
       </div>
+
+      <ChordPreview />
     </section>
   );
 }
