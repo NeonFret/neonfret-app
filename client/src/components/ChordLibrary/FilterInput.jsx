@@ -15,7 +15,7 @@ export default function FilterInput({ value, onChange }) {
   const [open, setOpen] = useState(false);
 
   const handleSelect = (val) => {
-    onChange?.(val);
+    onChange(val);
     setOpen(false);
   };
 

@@ -24,7 +24,7 @@ const chords = [
     id: 2,
     name: "C minor",
     slug: "c-minor",
-    type: "minor(barre)",
+    type: "minor",
     notes: ["C", "G", "C", "G"],
     fingers: ["1(barring)", 4, 5, 2, 1],
     diagramURL: "http://localhost:5000/chords/c-minor/CminorFret.svg",
@@ -46,9 +46,9 @@ const chords = [
 
   {
     id: 4,
-    name: "C7",
+    name: "C 7",
     slug: "c7",
-    type: "dominant7",
+    type: "7",
     notes: ["C", "E", "A#", "C"],
     fingers: ["X", 3, 2, 4, 1, 0],
     diagramURL: "http://localhost:5000/chords/c7/C7Fret.svg",
@@ -58,9 +58,9 @@ const chords = [
 
   {
     id: 5,
-    name: "Cmaj7",
+    name: "C maj7",
     slug: "c-major7",
-    type: "major7",
+    type: "maj7",
     notes: ["C", "E"],
     fingers: ["X", 3, 2, 0, 0, 0],
     diagramURL: "http://localhost:5000/chords/c-major7/Cmaj7Fret.svg",

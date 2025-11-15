@@ -1,9 +1,8 @@
-import TopPart from "../components/ChordLibrary/TopPart"
-
+import ChordLibrary from "../components/ChordLibrary/ChordLibrary";
 export default function Chords() {
   return (
     <section>
-      <TopPart />
+      <ChordLibrary />
     </section>
   );
 }
