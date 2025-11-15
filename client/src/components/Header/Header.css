@@ -48,8 +48,9 @@
 }
 
 .sign-in:hover {
-  scale: 1.03;
-  box-shadow: 0 0 10px var(--neon-green);
+  background-color: transparent;
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
 }
 
 .underline {

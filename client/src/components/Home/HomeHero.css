@@ -1,0 +1,44 @@
+.home-hero {
+  padding: 73px var(--inner-padding) 0 var(--inner-padding);
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.text-section h1 {
+  font-size: 40px;
+}
+
+.text-section span {
+  color: var(--neon-green);
+}
+
+.text-section p {
+  margin-top: 5px;
+}
+
+.feature-cards {
+  display: flex;
+  gap: 26px;
+}
+
+.hero-button {
+  width: 216px;
+  height: 66px;
+  border-radius: 9px;
+  background-color: var(--neon-green);
+  color: black;
+  font-family: var(--font-display);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: transparent;
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+}

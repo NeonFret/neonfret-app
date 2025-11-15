@@ -1,12 +1,13 @@
 :root {
-  --bg-dark: #0B0B0B;
+  --bg-dark: #0b0b0b;
   --text-white: #ffffff;
   --text-green: #00ff6a;
-  --text-secondary: #CFCFCF;
+  --text-secondary: #cfcfcf;
   --neon-green: #00ff6a;
   --font-primary: "TKT", sans-serif;
   --font-display: "Koulen", sans-serif;
-  --container-padding: 54px
+  --container-padding: 54px;
+  --inner-padding: 115px;
 }
 
 * {
