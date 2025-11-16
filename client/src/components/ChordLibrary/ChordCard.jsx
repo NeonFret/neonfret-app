@@ -1,4 +1,5 @@
 import "./ChordCard.css";
+import { Link } from "react-router-dom";
 
 export default function ChordCard({ chord }) {
   const getDifficultyColor = (level) => {
@@ -32,7 +33,9 @@ export default function ChordCard({ chord }) {
         </span>
       </p>
 
-      <button>VIEW CHORD</button>
+      <Link to={`/chords/${chord.slug}`} className="view-btn">
+        VIEW CHORD
+      </Link>
     </div>
   );
 }

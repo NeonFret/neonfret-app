@@ -26,7 +26,7 @@
     line-height: 1.4;
 }
 
-.chord-card button {
+.view-btn {
     background: var(--neon-green);
     border: 1px solid var(--neon-green);
     border-radius: 8px;
@@ -34,9 +34,12 @@
     font-size: 20px;
     font-family: var(--font-display);
     transition: 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    color: black;
 }
 
-.chord-card button:hover {
+.view-btn:hover {
     background-color: transparent;
     border: 1px solid var(--neon-green);
     color: var(--neon-green);
