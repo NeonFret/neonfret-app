@@ -1,8 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./ChordPage.css";
+
 import ChordDiagram from "../components/ChordPage/ChordDiagram";
 import ChordIRL from "../components/ChordPage/ChordIRL";
 import ChordInfo from "../components/ChordPage/ChordInfo";
+import ChordNext from "../components/ChordPage/ChordNext";
+import BackToChordsPage from "../components/ChordPage/BackToChordsPage";
 
 export default function ChordPage() {
   const { slug } = useParams();
@@ -28,10 +32,15 @@ export default function ChordPage() {
   }
 
   return (
-    <div style={{ padding: "40px", display: "flex", alignItems: "center" }}>
+    <div className="chord-page-container">
       <ChordDiagram chord={chord} />
       <ChordIRL chord={chord} />
-      <ChordInfo chord={chord} />
+
+      <div className="right-column">
+        <ChordInfo chord={chord} />
+        <ChordNext chord={chord} />
+        <BackToChordsPage />
+      </div>
     </div>
   );
 }
