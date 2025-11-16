@@ -1,0 +1,46 @@
+.chord-card {
+  width: 210px;
+  height: 193px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.25s ease;
+}
+
+.chord-card h3 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.chord-card h3 span {
+    color: var(--neon-green);
+}
+
+.chord-card p {
+    color: #8a8a8a;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.view-btn {
+    background: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: var(--font-display);
+    transition: 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.view-btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+}

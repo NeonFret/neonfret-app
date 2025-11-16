@@ -1,3 +1,8 @@
+import ChordLibrary from "../components/ChordLibrary/ChordLibrary";
 export default function Chords() {
-  return <h1>Chords Page</h1>;
+  return (
+    <section>
+      <ChordLibrary />
+    </section>
+  );
 }

@@ -1,0 +1,50 @@
+.diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.diagram-box {
+  width: 335px;
+  height: 460px;
+  background: #0b0b0b;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.diagram-img {
+  width: 110%;
+  height: auto;
+  object-fit: contain;
+}
+
+.play-sound {
+  margin-top: 24px;
+  width: 180px;
+  padding: 13px 0;
+
+  background: var(--neon-green);
+  color: black;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+
+  border: 1px solid var(--neon-green);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.play-sound:hover {
+  background: transparent;
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+}
