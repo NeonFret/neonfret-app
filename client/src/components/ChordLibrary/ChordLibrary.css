@@ -5,7 +5,7 @@
 }
 
 .top-part-layout {
-  padding: 55px var(--inner-padding) 0 var(--inner-padding);
+  padding: 24px var(--inner-padding) 0 var(--inner-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;

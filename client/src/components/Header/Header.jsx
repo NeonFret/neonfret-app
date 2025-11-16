@@ -1,5 +1,6 @@
 import logoIcon from "../../assets/logo_icon.svg";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../Header/Header.css";
 
 export default function Header() {
@@ -36,11 +37,21 @@ export default function Header() {
 
         <nav>
           <ul className="nav-list">
-            <li>HOME</li>
-            <li>CHORDS</li>
-            <li>SCALES</li>
-            <li>LICKS</li>
-            <li>PRACTICE</li>
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/chords">CHORDS</Link>
+            </li>
+            <li>
+              <Link to="/scales">SCALES</Link>
+            </li>
+            <li>
+              <Link to="/licks">LICKS</Link>
+            </li>
+            <li>
+              <Link to="/practice">PRACTICE</Link>
+            </li>
           </ul>
         </nav>
 
