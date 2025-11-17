@@ -7,6 +7,7 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import Chords from "./pages/Chords.jsx";
 import ChordPage from "./pages/ChordPage.jsx";
+import MetronomePage from "./pages/MetronomePage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<Home />} />
           <Route path="chords" element={<Chords />} />
           <Route path="/chords/:slug" element={<ChordPage />} />
+          <Route path="metronome" element={<MetronomePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
