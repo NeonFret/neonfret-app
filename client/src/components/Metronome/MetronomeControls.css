@@ -11,19 +11,27 @@
   border: none;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: 700;
+  font-family: var(--font-primary);
 }
 
 .start-btn {
-  background: #00ff9d;
+  background: var(--neon-green);
+  border: 1px solid var(--neon-green);
   color: #111;
 }
 
 .stop-btn {
-  background: #ff1e1e;
+  border: 1px solid rgba(0, 255, 106, 0.25);
+  background: rgba(0, 255, 106, 0.25);
   color: white;
 }
 
-.start-btn:hover,
-.stop-btn:hover {
+.start-btn:hover {
   transform: scale(1.07);
+}
+.stop-btn:hover {
+  background-color: transparent;
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
 }

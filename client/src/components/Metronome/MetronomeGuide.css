@@ -1,0 +1,52 @@
+.metronome-guide {
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+
+  background: rgba(0, 255, 106, 0.08);
+  border: 1px solid rgba(0, 255, 106, 0.3);
+  border-radius: 16px;
+
+  box-shadow: 0 0 20px rgba(0, 255, 106, 0.15);
+  backdrop-filter: blur(6px);
+
+  text-align: left;
+  color: white;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guide-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--neon-green);
+}
+
+.guide-text {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #d6ffd7;
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.guide-list li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.guide-list strong {
+  color: var(--neon-green);
+}
+
+.guide-tip {
+  font-style: italic;
+  color: #aaffb5;
+  margin-top: 10px;
+  text-align: center;
+}
