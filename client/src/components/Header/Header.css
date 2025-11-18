@@ -55,6 +55,13 @@
   font-size: 18px;
   padding: 0px 30px 0px 30px;
   transition: 0.3s ease;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sign-in:hover {
@@ -182,6 +189,57 @@
   z-index: 998;
   animation: fadeIn 0.3s ease;
 }
+
+.profile-dropdown {
+  position: absolute;
+  top: 80px;
+  right: 170px;
+  background: rgba(0, 255, 106, 0.07);
+  border: 1px solid rgba(0, 255, 106, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  width: 220px;
+  color: white;
+  box-shadow: 0 0 12px rgba(0, 255, 106, 0.15);
+  animation: fadeIn 0.15s ease-out;
+}
+
+.profile-dropdown p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.profile-dropdown button,
+.profile-dropdown a {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.logout-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.profile-icon {
+  width: 70%;
+  cursor: pointer;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 @keyframes fadeIn {
   from {

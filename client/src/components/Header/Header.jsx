@@ -1,11 +1,15 @@
 import logoIcon from "../../assets/logo_icon.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../Header/Header.css";
+import { AuthContext } from "../../context/AuthContext";
+import profileIcon from "../../../public/icons/profile.svg";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  const { user, logout } = useContext(AuthContext);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const closeMenu = () => {
     setClosing(true);
@@ -55,7 +59,34 @@ export default function Header() {
           </ul>
         </nav>
 
-        <button className="sign-in">SIGN IN</button>
+        {user ? (
+          <div
+            className="profile-area"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <img src={profileIcon} alt="profile" className="profile-icon" />
+          </div>
+        ) : (
+          <Link to="/signin" className="sign-in">
+            SIGN IN
+          </Link>
+        )}
+
+        {user && showDropdown && (
+          <div className="profile-dropdown">
+            <p>
+              <strong>Username:</strong> {user.username}
+            </p>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Created:</strong> {user.createdAt}
+            </p>
+
+            <button onClick={logout}>Log Out</button>
+          </div>
+        )}
 
         <div className="hamburger" onClick={() => setMenuOpen(true)}>
           <span></span>
@@ -73,7 +104,16 @@ export default function Header() {
             <li>SCALES</li>
             <li>LICKS</li>
             <li>PRACTICE</li>
-            <li className="mobile-sign-in">SIGN IN</li>
+            {user ? (
+              <li className="mobile-profile">
+                <img src={profileIcon} alt="profile" className="profile-icon" />
+                <span>{user.username}</span>
+              </li>
+            ) : (
+              <li className="mobile-sign-in">
+                <Link to="/signin">SIGN IN</Link>
+              </li>
+            )}
           </ul>
 
           <button className="close-menu" onClick={closeMenu}>
