@@ -50,7 +50,7 @@ export default function Header() {
               <Link to="/licks">LICKS</Link>
             </li>
             <li>
-              <Link to="/practice">PRACTICE</Link>
+              <Link to="/metronome">PRACTICE</Link>
             </li>
           </ul>
         </nav>
