@@ -1,6 +1,7 @@
 import "./Auth.css";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function SignIn() {
   const { login } = useContext(AuthContext);
@@ -32,7 +33,29 @@ export default function SignIn() {
 
     localStorage.setItem("neon_token", data.token);
 
-    login({ token: data.token }); 
+    login({ token: data.token });
+    window.location.href = "/";
+  };
+
+  const handleGoogleLogin = async (response) => {
+    const token = response.credential;
+
+    const res = await fetch("http://localhost:5000/api/auth/google", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+
+    localStorage.setItem("neon_token", data.token);
+    login({ token: data.token });
+
     window.location.href = "/";
   };
 
@@ -59,6 +82,13 @@ export default function SignIn() {
 
         <button className="auth-btn">Sign In</button>
       </form>
+
+      <div className="google-btn-area">
+        <GoogleLogin
+          onSuccess={handleGoogleLogin}
+          onError={() => alert("Google login failed")}
+        />
+      </div>
 
       <p className="switch-auth">
         Don't have an account? <a href="/signup">Sign Up</a>

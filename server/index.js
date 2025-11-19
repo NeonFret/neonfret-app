@@ -3,6 +3,8 @@ const cors = require("cors");
 const app = express();
 const fs = require("fs");
 const path = require("path");
+const { OAuth2Client } = require("google-auth-library");
+const googleClient = new OAuth2Client("YOUR_GOOGLE_CLIENT_ID");
 
 const usersFile = path.join(__dirname, "users.json");
 
@@ -291,7 +293,6 @@ app.post("/api/auth/login", (req, res) => {
   });
 });
 
-// --------------------- PROFILE ---------------------
 app.get("/api/auth/profile", (req, res) => {
   const token = req.headers.authorization;
 
@@ -307,6 +308,45 @@ app.get("/api/auth/profile", (req, res) => {
     email: user.email,
     createdAt: user.createdAt,
   });
+});
+
+app.post("/api/auth/google", async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    const ticket = await googleClient.verifyIdToken({
+      idToken: token,
+      audience:
+        "1059444998266-9poncaevboi05tqe1fpr09350vjo1bha.apps.googleusercontent.com",
+    });
+
+    const payload = ticket.getPayload();
+
+    const email = payload.email;
+    const username = payload.name;
+
+    const users = readUsers();
+    let user = users.find((u) => u.email === email);
+
+    if (!user) {
+      user = {
+        id: Date.now(),
+        username,
+        email,
+        password: null,
+        createdAt: new Date().toLocaleDateString(),
+      };
+      users.push(user);
+    }
+
+    const neonToken = generateToken();
+    user.token = neonToken;
+    writeUsers(users);
+
+    res.json({ message: "Google login successful", token: neonToken });
+  } catch (error) {
+    res.status(400).json({ message: "Google authentication failed" });
+  }
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
