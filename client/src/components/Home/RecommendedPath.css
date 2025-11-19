@@ -22,9 +22,26 @@
 }
 
 @media (max-width: 800px) {
-    .path-row {
-        flex-direction: column;
-        align-items: center;
-    }
+  .path-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recommended-layout {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
+@media (max-width: 425px) {
+  .recommended-layout h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 340px) {
+  .recommended-layout h1 {
+    font-size: 33px;
+  }
+}

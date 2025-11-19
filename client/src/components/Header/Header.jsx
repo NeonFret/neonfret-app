@@ -1,5 +1,5 @@
 import logoIcon from "../../assets/logo_icon.svg";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../Header/Header.css";
 import { AuthContext } from "../../context/AuthContext";
@@ -10,6 +10,8 @@ export default function Header() {
   const [closing, setClosing] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const dropdownRef = useRef(null);
 
   const closeMenu = () => {
     setClosing(true);
@@ -30,6 +32,23 @@ export default function Header() {
       document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
+
+  
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowDropdown(false);
+      }
+    }
+
+    if (showDropdown) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showDropdown]);
 
   return (
     <>
@@ -73,18 +92,12 @@ export default function Header() {
         )}
 
         {user && showDropdown && (
-          <div className="profile-dropdown">
-            <p>
-              <strong>Username:</strong> {user.username}
-            </p>
-            <p>
-              <strong>Email:</strong> {user.email}
-            </p>
-            <p>
-              <strong>Created:</strong> {user.createdAt}
-            </p>
+          <div className="profile-dropdown" ref={dropdownRef}>
+            <p>See Profile</p>
 
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout} className="logout-btn">
+              Log Out
+            </button>
           </div>
         )}
 
@@ -104,10 +117,13 @@ export default function Header() {
             <li>SCALES</li>
             <li>LICKS</li>
             <li>PRACTICE</li>
+            <hr />
             {user ? (
               <li className="mobile-profile">
-                <img src={profileIcon} alt="profile" className="profile-icon" />
                 <span>{user.username}</span>
+                <button onClick={logout} className="logout-btn">
+                  Log Out
+                </button>
               </li>
             ) : (
               <li className="mobile-sign-in">

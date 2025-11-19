@@ -104,6 +104,10 @@
   .hamburger {
     display: flex;
   }
+
+  .profile-icon {
+    display: none;
+  }
 }
 
 .mobile-menu {
@@ -156,6 +160,11 @@
   font-size: 20px;
   padding: 10px 0;
   cursor: pointer;
+  width: fit-content;
+}
+
+hr {
+  opacity: 0.1;
 }
 
 .mobile-sign-in {
@@ -169,7 +178,7 @@
 
 .close-menu {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 20px;
   background: transparent;
   border: none;
@@ -203,16 +212,25 @@
   color: white;
   box-shadow: 0 0 12px rgba(0, 255, 106, 0.15);
   animation: fadeIn 0.15s ease-out;
+  z-index: 999;
 }
 
 .profile-dropdown p {
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 17px;
   opacity: 0.85;
+  text-decoration: underline;
+  color: var(--neon-green);
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: fit-content;
 }
 
-.profile-dropdown button,
-.profile-dropdown a {
+.profile-dropdown p:hover {
+  color: rgba(0, 255, 106, 0.7);
+}
+
+.profile-dropdown button {
   width: 100%;
   margin-top: 10px;
   padding: 8px;
@@ -225,8 +243,21 @@
 }
 
 .logout-btn {
-  background: #ff4d4d;
+  background: var(--neon-green);
+  padding: 8px 50px 8px 50px;
   color: white;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: rgba(0, 255, 106, 0.7);
 }
 
 .profile-icon {
@@ -234,12 +265,22 @@
   cursor: pointer;
 }
 
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+.mobile-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes fadeIn {
   from {
@@ -247,5 +288,11 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 435px) {
+  .left-icon-side h1 {
+    display: none;
   }
 }
