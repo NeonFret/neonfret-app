@@ -87,6 +87,9 @@ export default function SignIn() {
         <GoogleLogin
           onSuccess={handleGoogleLogin}
           onError={() => alert("Google login failed")}
+          theme="outline"
+          size="large"
+          text="continue_with"
         />
       </div>
 

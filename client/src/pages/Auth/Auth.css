@@ -65,6 +65,11 @@
   color: var(--neon-green);
 }
 
+.google-btn-area {
+  margin-top: 10px;
+  color: text;
+}
+
 @media (max-width: 560px) {
   .auth-container {
     width: 380px;

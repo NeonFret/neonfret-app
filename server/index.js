@@ -4,7 +4,9 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 const { OAuth2Client } = require("google-auth-library");
-const googleClient = new OAuth2Client("YOUR_GOOGLE_CLIENT_ID");
+const googleClient = new OAuth2Client(
+  "1059444998266-9poncaevboi05tqe1fpr09350vjo1bha.apps.googleusercontent.com"
+);
 
 const usersFile = path.join(__dirname, "users.json");
 
