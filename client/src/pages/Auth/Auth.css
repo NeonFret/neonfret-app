@@ -52,8 +52,8 @@
 }
 
 .auth-btn:hover {
-    background-color: transparent;
-    color: var(--neon-green);
+  background-color: transparent;
+  color: var(--neon-green);
 }
 
 .switch-auth {
@@ -63,4 +63,28 @@
 
 .switch-auth a {
   color: var(--neon-green);
+}
+
+@media (max-width: 560px) {
+  .auth-container {
+    width: 380px;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-container {
+    width: 330px;
+  }
+}
+
+@media (max-width: 440px) {
+  .auth-container {
+    width: 280px;
+  }
+}
+
+@media (max-width: 390px) {
+  .auth-container {
+    width: 300px;
+  }
 }

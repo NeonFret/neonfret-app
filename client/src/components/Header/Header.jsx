@@ -1,6 +1,6 @@
 import logoIcon from "../../assets/logo_icon.svg";
 import { useState, useEffect, useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../Header/Header.css";
 import { AuthContext } from "../../context/AuthContext";
 import profileIcon from "../../../public/icons/profile.svg";
@@ -12,6 +12,7 @@ export default function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const dropdownRef = useRef(null);
+  const location = useLocation();
 
   const closeMenu = () => {
     setClosing(true);
@@ -33,7 +34,6 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -49,6 +49,14 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showDropdown]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      setTimeout(() => {
+        closeMenu();
+      }, 0);
+    }
+  }, [location.pathname]);
 
   return (
     <>
@@ -107,6 +115,7 @@ export default function Header() {
           <span></span>
         </div>
       </header>
+
       {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
 
       {menuOpen && (
@@ -126,9 +135,9 @@ export default function Header() {
                 </button>
               </li>
             ) : (
-              <li className="mobile-sign-in">
-                <Link to="/signin">SIGN IN</Link>
-              </li>
+              <Link to="/signin" className="mobile-sign-in">
+                SIGN IN
+              </Link>
             )}
           </ul>
 
