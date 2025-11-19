@@ -14,21 +14,25 @@ export default function SignIn() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem("neonfret_users") || "[]");
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-    const existingUser = users.find(
-      (u) => u.email === form.email && u.password === form.password
-    );
+    const data = await res.json();
 
-    if (!existingUser) {
-      alert("Invalid email or password!");
+    if (!res.ok) {
+      alert(data.message);
       return;
     }
 
-    login(existingUser);
+    localStorage.setItem("neon_token", data.token);
+
+    login({ token: data.token }); 
     window.location.href = "/";
   };
 
@@ -38,10 +42,20 @@ export default function SignIn() {
 
       <form className="auth-form" onSubmit={handleSubmit}>
         <label>Email</label>
-        <input type="email" name="email" value={form.email} onChange={handleChange} />
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+        />
 
         <label>Password</label>
-        <input type="password" name="password" value={form.password} onChange={handleChange} />
+        <input
+          type="password"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+        />
 
         <button className="auth-btn">Sign In</button>
       </form>

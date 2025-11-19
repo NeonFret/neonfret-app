@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const fs = require("fs");
+const path = require("path");
+
+const usersFile = path.join(__dirname, "users.json");
 
 app.use(cors());
 app.use(express.json());
@@ -139,6 +143,23 @@ const chords = [
   },
 ];
 
+function readUsers() {
+  try {
+    const data = fs.readFileSync(usersFile, "utf8");
+    return JSON.parse(data || "[]");
+  } catch (err) {
+    return [];
+  }
+}
+
+function writeUsers(users) {
+  fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+}
+
+function generateToken() {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36);
+}
+
 app.get("/", (req, res) => {
   res.send("NeonFret API is running");
 });
@@ -221,6 +242,71 @@ app.get("/api/chords/difficulty/:level", (req, res) => {
   }
 
   res.json(filtered);
+});
+
+// --------------------- SIGN UP ---------------------
+app.post("/api/auth/signup", (req, res) => {
+  const { username, email, password } = req.body;
+
+  if (!username || !email || !password)
+    return res.status(400).json({ message: "All fields required" });
+
+  const users = readUsers();
+
+  if (users.some((u) => u.email === email)) {
+    return res.status(400).json({ message: "Email already exists" });
+  }
+
+  const newUser = {
+    id: Date.now(),
+    username,
+    email,
+    password,
+    createdAt: new Date().toLocaleDateString(),
+  };
+
+  users.push(newUser);
+  writeUsers(users);
+
+  res.json({ message: "Account created successfully" });
+});
+
+app.post("/api/auth/login", (req, res) => {
+  const { email, password } = req.body;
+
+  const users = readUsers();
+  const user = users.find((u) => u.email === email && u.password === password);
+
+  if (!user)
+    return res.status(401).json({ message: "Invalid email or password" });
+
+  const token = generateToken();
+
+  user.token = token;
+  writeUsers(users);
+
+  res.json({
+    message: "Login successful",
+    token,
+  });
+});
+
+// --------------------- PROFILE ---------------------
+app.get("/api/auth/profile", (req, res) => {
+  const token = req.headers.authorization;
+
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  const users = readUsers();
+  const user = users.find((u) => u.token === token);
+
+  if (!user) return res.status(401).json({ message: "Invalid token" });
+
+  res.json({
+    username: user.username,
+    email: user.email,
+    createdAt: user.createdAt,
+  });
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));

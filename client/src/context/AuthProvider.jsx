@@ -5,22 +5,37 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("neonfret_user");
+    const token = localStorage.getItem("neon_token");
 
-    if (savedUser) {
-      setTimeout(() => {
-        setUser(JSON.parse(savedUser));
-      }, 0);
-    }
+    if (!token) return;
+
+    fetch("http://localhost:5000/api/auth/profile", {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.username) {
+          setUser(data);
+        }
+      })
+      .catch(() => {});
   }, []);
 
-  const login = (userData) => {
-    localStorage.setItem("neonfret_user", JSON.stringify(userData));
-    setUser(userData);
+  const login = () => {
+    const token = localStorage.getItem("neon_token");
+
+    fetch("http://localhost:5000/api/auth/profile", {
+      headers: { Authorization: token },
+    })
+      .then((res) => res.json())
+      .then((data) => setUser(data));
   };
 
   const logout = () => {
-    localStorage.removeItem("neonfret_user");
+    localStorage.removeItem("neon_token");
     setUser(null);
   };
 

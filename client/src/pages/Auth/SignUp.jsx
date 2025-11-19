@@ -12,27 +12,21 @@ export default function SignUp() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem("neonfret_users") || "[]");
+    const res = await fetch("http://localhost:5000/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-    const emailExists = users.some((u) => u.email === form.email);
+    const data = await res.json();
 
-    if (emailExists) {
-      alert("Email already exists!");
+    if (!res.ok) {
+      alert(data.message);
       return;
     }
-
-    const newUser = {
-      username: form.username,
-      email: form.email,
-      password: form.password,
-      createdAt: new Date().toLocaleDateString(),
-    };
-
-    users.push(newUser);
-    localStorage.setItem("neonfret_users", JSON.stringify(users));
 
     alert("Account created!");
     window.location.href = "/signin";
