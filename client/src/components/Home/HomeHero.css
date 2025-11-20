@@ -54,6 +54,8 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  line-height: 22px;
+  padding-top: 5px;
 }
 
 .hero-button:hover {

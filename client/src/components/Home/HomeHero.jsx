@@ -21,8 +21,8 @@ export default function HomeHero() {
               </p>
             </div>
 
-            <Link to="/chords" type="button" className="hero-button">
-              START WITH CHORDS
+            <Link to="/guitar-anatomy" type="button" className="hero-button">
+              START WITH <br /> GUITAR ANATOMY
             </Link>
           </div>
         </div>

@@ -75,7 +75,7 @@ export default function Header() {
               <Link to="/chords">CHORDS</Link>
             </li>
             <li>
-              <Link to="/scales">SCALES</Link>
+              <Link to="/guitar-anatomy">ANATOMY</Link>
             </li>
             <li>
               <Link to="/licks">LICKS</Link>
@@ -123,7 +123,7 @@ export default function Header() {
           <ul>
             <li>HOME</li>
             <li>CHORDS</li>
-            <li>SCALES</li>
+            <li>ANATOMY</li>
             <li>LICKS</li>
             <li>PRACTICE</li>
             <hr />
