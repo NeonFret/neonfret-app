@@ -1,31 +1,52 @@
 .reason-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--inner-padding);
-    gap: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--inner-padding);
+  gap: 55px;
 }
 
 .reason-layout h1 {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 span {
-    color: var(--neon-green);
+  color: var(--neon-green);
 }
 
 .reason-cards {
-    display: flex;
-    justify-content: space-around;
-    gap: 89px;
+  display: flex;
+  justify-content: space-around;
+  gap: 89px;
 }
 
 @media (max-width: 1400px) {
-    .reason-layout h1 {
-        text-align: center;
-    }
+  .reason-layout h1 {
+    text-align: center;
+  }
+}
 
-    .reason-cards {
-        flex-direction: column;
-    }
+@media (max-width: 1160px) {
+  .reason-cards {
+   gap: 40px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .reason-cards {
+   gap: 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  .reason-cards {
+   gap: 10px;
+  }
+}
+
+@media (max-width: 966px) {
+  .reason-cards {
+   flex-direction: column;
+   gap: 50px;
+  }
 }

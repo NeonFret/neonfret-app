@@ -1,0 +1,47 @@
+.anatomy-container {
+  width: 100%;
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.subtitle {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.top-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.top-image img {
+  width: 450px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.parts-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.part-row h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.part-row p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  opacity: 0.8;
+}

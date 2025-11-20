@@ -38,7 +38,19 @@
   font-size: 20px;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
+  .feature-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 975px) {
+  .feature-card {
+    width: 200px;
+  }
+}
+
+@media (max-width: 670px) {
   .feature-card {
     width: 300px;
   }

@@ -1,5 +1,6 @@
 import FeatureCard from "./FeatureCard";
 import ChordPreview from "./ChordPreview";
+import { Link } from "react-router-dom";
 import "./HomeHero.css";
 
 export default function HomeHero() {
@@ -7,20 +8,24 @@ export default function HomeHero() {
     <section className="home-hero">
       <div className="hero-left">
         <div className="text-section">
-          <h1>
-            Learn Guitar <br />
-            The <span>Easy Way</span>
-          </h1>
+          <div className="inner-text">
+            <div className="inner-upper-text">
+              <h1>
+                Learn Guitar <br />
+                The <span>Easy Way</span>
+              </h1>
 
-          <p>
-            Interactive tools, visual guides and <br />
-            structured practice. All in one place
-          </p>
+              <p>
+                Interactive tools, visual guides and <br />
+                structured practice. All in one place
+              </p>
+            </div>
+
+            <Link to="/guitar-anatomy" type="button" className="hero-button">
+              START WITH <br /> GUITAR ANATOMY
+            </Link>
+          </div>
         </div>
-
-        <button type="button" className="hero-button">
-          START WITH CHORDS
-        </button>
 
         <div className="feature-cards">
           <FeatureCard icon="ChordLibrary" title="Chord Library" />
