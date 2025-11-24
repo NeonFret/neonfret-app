@@ -1,6 +1,7 @@
 import React from "react";
 import "./guitarAnatomy.css";
-import guitarImage from "../../public/Images/guitar_anatomy.png";
+import GuitarImage from "../components/GuitarAnatomy/GuitarImage";
+import PartsList from "../components/GuitarAnatomy/PartsList";
 
 const parts = [
   {
@@ -25,7 +26,6 @@ const parts = [
     description: "Wooden surface on the neck where you press the strings.",
   },
   { label: "Sound Hole", description: "Amplifies sound on acoustic guitars." },
-
   {
     label: "Pickguard",
     description: "Protects the guitar body from pick scratches.",
@@ -51,28 +51,12 @@ export default function GuitarAnatomy() {
       </h1>
       <p className="subtitle">Learn every essential part of a guitar</p>
 
-      <div className="top-image">
-        <img src={guitarImage} alt="Guitar Anatomy" />
-      </div>
-
-      <div className="bottom-section">
-        <div className="parts-column">
-          {leftParts.map((p, i) => (
-            <div key={i} className="part-row">
-              <h3>• {p.label}</h3>
-              <p>{p.description}</p>
-            </div>
-          ))}
+      <div className="main-content">
+        <div className="list-parts">
+          <PartsList parts={leftParts} />
+          <PartsList parts={rightParts} />
         </div>
-
-        <div className="parts-column">
-          {rightParts.map((p, i) => (
-            <div key={i} className="part-row">
-              <h3>• {p.label}</h3>
-              <p>{p.description}</p>
-            </div>
-          ))}
-        </div>
+        <GuitarImage />
       </div>
     </div>
   );
