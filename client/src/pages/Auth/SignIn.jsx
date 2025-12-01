@@ -90,6 +90,7 @@ export default function SignIn() {
           theme="outline"
           size="large"
           text="continue_with"
+          locale="en"
         />
       </div>
 
