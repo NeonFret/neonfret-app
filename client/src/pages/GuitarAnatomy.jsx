@@ -46,7 +46,7 @@ export default function GuitarAnatomy() {
 
   return (
     <div className="anatomy-container">
-      <h1>
+      <h1 className="anatomy-header">
         <span>Guitar</span> Anatomy
       </h1>
       <p className="subtitle">Learn every essential part of a guitar</p>

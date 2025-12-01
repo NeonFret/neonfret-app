@@ -28,8 +28,8 @@ export default function HomeHero() {
         </div>
 
         <div className="feature-cards">
-          <FeatureCard icon="ChordLibrary" title="Chord Library" />
-          <FeatureCard icon="Scales" title="Scales" />
+          <FeatureCard icon="Scales" title="Chord Library" />
+          <FeatureCard icon="ChordLibrary" title="Guitar Anatomy" />
           <FeatureCard icon="PracticeMode" title="Practice Mode" />
         </div>
       </div>

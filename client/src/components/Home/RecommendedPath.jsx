@@ -10,18 +10,16 @@ export default function RecommendedPath() {
 
       <div className="path-row">
         <RecommendedStep
-          icon="ChordLibrary"
+          icon="Scales"
           title="Chords"
           desc="Learn chords to train your fingers and hands."
         />
 
-
         <RecommendedStep
-          icon="Scales"
-          title="Scales"
-          desc="Learn Pentatonic Scales to develop your skills for playing solos."
+          icon="ChordLibrary"
+          title="Guitar Anatomy"
+          desc="Know your instrument inside out, from headstock to bridge and build a solid foundation for every skill ahead."
         />
-
 
         <RecommendedStep
           icon="PracticeMode"
