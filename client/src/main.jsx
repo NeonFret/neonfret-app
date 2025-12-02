@@ -15,6 +15,7 @@ import SignIn from "./pages/Auth/SignIn.jsx";
 import SignUp from "./pages/Auth/SignUp.jsx";
 import GuitarAnatomy from "./pages/GuitarAnatomy.jsx";
 import TheoryPage from "./pages/TheoryPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/signup" element={<SignUp />} />
               <Route path="/guitar-anatomy" element={<GuitarAnatomy />} />
               <Route path="/theory" element={<TheoryPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Route>
           </Routes>
         </BrowserRouter>

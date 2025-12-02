@@ -1,0 +1,35 @@
+.profile-container {
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.profile-header {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.profile-card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 25px 35px;
+  border-radius: 12px;
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.profile-card p {
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.profile-card span {
+  color: #5ae27f; 
+  font-weight: bold;
+}
+
+.loading-text {
+  color: #aaa;
+  margin-top: 50px;
+}
