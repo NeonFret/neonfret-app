@@ -78,7 +78,7 @@ export default function Header() {
               <Link to="/guitar-anatomy">ANATOMY</Link>
             </li>
             <li>
-              <Link to="/licks">LICKS</Link>
+              <Link to="/theory">THEORY</Link>
             </li>
             <li>
               <Link to="/metronome">PRACTICE</Link>
