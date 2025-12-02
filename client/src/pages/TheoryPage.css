@@ -1,0 +1,23 @@
+.theory-container {
+  padding: 54px 54px 0px 54px;
+}
+
+.theory-subtitle {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 426px) {
+    .theory-container {
+        padding: 54px 0 0 0;
+    }
+}
+
+@media (max-width: 395px) {
+    .theory-container {
+        padding: 54px 20px 0px 20px;
+    }
+
+    .theory-header, .theory-subtitle {
+        text-align: center;
+    }
+}

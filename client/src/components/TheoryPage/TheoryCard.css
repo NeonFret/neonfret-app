@@ -1,0 +1,52 @@
+.theory-card {
+  width: 100%;
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px auto;
+  transition: 0.3s ease;
+}
+
+.theory-card:hover {
+  border-color: #888;
+}
+
+.theory-card-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theory-card-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.theory-card-arrow {
+  font-size: 18px;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.theory-card.open .theory-card-arrow {
+  transform: rotate(360deg);
+}
+
+.theory-card-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.theory-card.open .theory-card-answer {
+  max-height: 200px; 
+}
+
+.theory-card-desc {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.4;
+  font-size: 16px;
+}

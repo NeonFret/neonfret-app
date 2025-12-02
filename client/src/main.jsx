@@ -14,6 +14,7 @@ import MetronomePage from "./pages/MetronomePage.jsx";
 import SignIn from "./pages/Auth/SignIn.jsx";
 import SignUp from "./pages/Auth/SignUp.jsx";
 import GuitarAnatomy from "./pages/GuitarAnatomy.jsx";
+import TheoryPage from "./pages/TheoryPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -28,10 +29,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route index element={<Home />} />
               <Route path="chords" element={<Chords />} />
               <Route path="/chords/:slug" element={<ChordPage />} />
-              <Route path="metronome" element={<MetronomePage />} />
+              <Route path="/metronome" element={<MetronomePage />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/guitar-anatomy" element={<GuitarAnatomy />} />
+              <Route path="/theory" element={<TheoryPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
