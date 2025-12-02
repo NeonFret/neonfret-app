@@ -37,6 +37,16 @@
     "email": "nikadvalishvili517@gmail.com",
     "password": null,
     "createdAt": "12/2/2025",
-    "token": "kxj2401q89mip04n28"
+    "token": "x3wnrebdf4kmip1az7m",
+    "profileImage": "/uploads/profile/1764705563053.png"
+  },
+  {
+    "id": 1764707850756,
+    "username": "Andrei",
+    "email": "andrei21@gmail.com",
+    "password": "andreibandrei",
+    "createdAt": "12/3/2025",
+    "token": "4efcyr4lsnxmip1hwj9",
+    "profileImage": "/uploads/profile/1764707850756.jpg"
   }
 ]

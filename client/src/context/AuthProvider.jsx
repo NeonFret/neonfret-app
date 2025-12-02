@@ -37,6 +37,7 @@ export default function AuthProvider({ children }) {
   const logout = () => {
     localStorage.removeItem("neon_token");
     setUser(null);
+    window.location.href = "/"
   };
 
   return (
