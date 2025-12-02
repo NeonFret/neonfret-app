@@ -17,7 +17,10 @@ import GuitarAnatomy from "./pages/GuitarAnatomy.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId="1059444998266-9poncaevboi05tqe1fpr09350vjo1bha.apps.googleusercontent.com">
+    <GoogleOAuthProvider
+      locale="en"
+      clientId="1059444998266-9poncaevboi05tqe1fpr09350vjo1bha.apps.googleusercontent.com"
+    >
       <AuthProvider>
         <BrowserRouter>
           <Routes>

@@ -13,15 +13,14 @@ export default function ReasonSection() {
           icon="StructuredLearning"
           title="Structured Learning"
           desc="Follow a guided path
-that connects chords,
-scales, and rhythm -
+that connects chords and rhythm.
 no random videos."
         />
         <ReasonCard
           icon="InteractiveTools"
           title="Interactive Tools"
-          desc="Visual chords, metronome
-and scales so you can
+          desc="Visual chords and metronome
+so you can
 understand and learn
 the best way."
         />

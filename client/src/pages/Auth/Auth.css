@@ -67,8 +67,11 @@
 
 .google-btn-area {
   margin-top: 10px;
-  color: text;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
 
 @media (max-width: 560px) {
   .auth-container {

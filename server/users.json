@@ -14,5 +14,21 @@
     "password": null,
     "createdAt": "11/20/2025",
     "token": "xdu93fk7xqemi6fvg8q"
+  },
+  {
+    "id": 1764623748376,
+    "username": "Trio Barbell",
+    "email": "triobarbell@gmail.com",
+    "password": null,
+    "createdAt": "12/2/2025",
+    "token": "7tyx12zzq1pminnf2gc"
+  },
+  {
+    "id": 1764624665701,
+    "username": "SaloBusk",
+    "email": "salomeBuska@gmail.com",
+    "password": "tyvarcheli21",
+    "createdAt": "12/2/2025",
+    "token": "d07v8u3toqhminnyyyu"
   }
 ]
