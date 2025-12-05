@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const fs = require("fs");
 const path = require("path");
+const multer = require("multer");
 const { OAuth2Client } = require("google-auth-library");
 const googleClient = new OAuth2Client(
   "1059444998266-9poncaevboi05tqe1fpr09350vjo1bha.apps.googleusercontent.com"
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/chords", express.static("public/chords"));
+app.use("/uploads", express.static("uploads"));
 
 const chords = [
   {
@@ -164,22 +166,64 @@ function generateToken() {
   return Math.random().toString(36).substring(2) + Date.now().toString(36);
 }
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/profile/");
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, req.userId + ext);
+  },
+});
+
+const upload = multer({ storage });
+
+function authMiddleware(req, res, next) {
+  const token = req.headers.authorization;
+  if (!token) return res.status(401).json({ message: "No token" });
+
+  const users = readUsers();
+  const user = users.find((u) => u.token === token);
+
+  if (!user) return res.status(401).json({ message: "Invalid token" });
+
+  req.userId = user.id;
+  next();
+}
+
+app.post(
+  "/api/auth/upload-profile",
+  authMiddleware,
+  upload.single("profile"),
+  (req, res) => {
+    const users = readUsers();
+    const user = users.find((u) => u.id === req.userId);
+
+    if (!user) return res.status(400).json({ message: "User not found" });
+
+    user.profileImage = `/uploads/profile/${req.file.filename}`;
+    writeUsers(users);
+
+    res.json({
+      message: "Profile picture updated",
+      image: user.profileImage,
+    });
+  }
+);
+
 app.get("/", (req, res) => {
   res.send("NeonFret API is running");
 });
 
-// ------------------- GET all CHORDS -------------------
 app.get("/api/chords", (req, res) => {
   res.json(chords);
 });
 
-// ------------------- GET all TYPES -------------------
 app.get("/api/chords/types", (req, res) => {
   const types = [...new Set(chords.map((c) => c.type))];
   res.json(types);
 });
 
-// ------------------- GET chords by ROOT LETTER -------------------
 app.get("/api/chords/root/:letter", (req, res) => {
   const letter = req.params.letter.toUpperCase();
 
@@ -196,7 +240,6 @@ app.get("/api/chords/root/:letter", (req, res) => {
   res.json(filtered);
 });
 
-// ------------------- GET chord by ID -------------------
 app.get("/api/chords/:id", (req, res) => {
   const chordId = parseInt(req.params.id, 10);
 
@@ -209,7 +252,6 @@ app.get("/api/chords/:id", (req, res) => {
   res.json(foundChord);
 });
 
-// ------------------- GET chord by SLUG -------------------
 app.get("/api/chords/slug/:slug", (req, res) => {
   const slug = req.params.slug.toLowerCase();
   const found = chords.find((c) => c.slug.toLowerCase() === slug);
@@ -221,7 +263,6 @@ app.get("/api/chords/slug/:slug", (req, res) => {
   res.json(found);
 });
 
-// ------------------- GET chords by TYPE -------------------
 app.get("/api/chords/type/:type", (req, res) => {
   const type = req.params.type.toLowerCase();
   const filtered = chords.filter((c) => c.type.toLowerCase() === type);
@@ -233,7 +274,6 @@ app.get("/api/chords/type/:type", (req, res) => {
   res.json(filtered);
 });
 
-// ------------------- GET chords by DIFFICULTY -------------------
 app.get("/api/chords/difficulty/:level", (req, res) => {
   const level = req.params.level.toLowerCase();
 
@@ -248,7 +288,6 @@ app.get("/api/chords/difficulty/:level", (req, res) => {
   res.json(filtered);
 });
 
-// --------------------- SIGN UP ---------------------
 app.post("/api/auth/signup", (req, res) => {
   const { username, email, password } = req.body;
 
@@ -309,6 +348,7 @@ app.get("/api/auth/profile", (req, res) => {
     username: user.username,
     email: user.email,
     createdAt: user.createdAt,
+    profileImage: user.profileImage || null,
   });
 });
 

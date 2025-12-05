@@ -101,7 +101,11 @@ export default function Header() {
 
         {user && showDropdown && (
           <div className="profile-dropdown" ref={dropdownRef}>
-            <p>See Profile</p>
+            <p className="username-display">{user.username}</p>
+            <hr />
+            <Link to="/profile" className="profile-transfer">
+              See Profile
+            </Link>
 
             <button onClick={logout} className="logout-btn">
               Log Out

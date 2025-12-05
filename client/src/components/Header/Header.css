@@ -215,8 +215,8 @@ hr {
   z-index: 999;
 }
 
-.profile-dropdown p {
-  margin-bottom: 10px;
+.profile-transfer {
+  margin: 10px 0 10px 0;
   font-size: 17px;
   opacity: 0.85;
   text-decoration: underline;
@@ -226,7 +226,14 @@ hr {
   width: fit-content;
 }
 
-.profile-dropdown p:hover {
+.username-display {
+  color: white;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.profile-transfer:hover {
   color: rgba(0, 255, 106, 0.7);
 }
 
